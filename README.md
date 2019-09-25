@@ -3,30 +3,46 @@ slam for pepper robotic
 
 # Pepper SLAM 文档
 
+仓库链接：https://github.com/chaowe/SLAM_Pepper.git
+	
+服务器路径：/home/weichao/workspace/workspace_python/SLAM_Pepper
+
 ## deeplab
 
-仓库链接：https://github.com/equation314/DeepLab-Pepper
+仓库链接：https://github.com/chaowe/SLAM_Pepper/tree/master/segmentation/deeplab
 
-服务器路径：/home/jiayuekai/Pepper/SemanticSegmentation/models/research/deeplab
+服务器路径：/home/weichao/workspace/workspace_python/SLAM_Pepper/segmentation/deeplab
 
-说明：用 DeepLabv3+ 做语义分割，需要放在 https://github.com/tensorflow/models/research 这个目录下。
+在`.bashrc`中添加环境变量：
 
-Fork from: https://github.com/tensorflow/models/tree/master/research/deeplab #comment
+```
+RESEARCH_HOME=/home/weichao/workspace/workspace_python/SLAM_Pepper/segmentation
+ 
+export PYTHONPATH="/home/weichao/workspace/workspace_python/deeplearning3:$RESEARCH_HOME:$RESEARCH_HOME/slim:$PYTHONPATH"
+```
+
+### 数据预处理 `SLAM_Pepper/segmentation/deeplab/dataset`中：
+
+1. copy nyu_v2、pepper 数据集 至 SLAM_Pepper/segmentation/deeplab/dataset/
+2. 数据集较大，没有上传github，请在从目录拷贝：/home/weichao/workspace/workspace_python/SLAM_Pepper/segmentation/deeplab/datasets
+
+```
+python build_nyuv2_8_data.py --image_format=jpg
+```
+
 
 ### 训练
 
-python build_nyuv2_8_data.py --image_format=jpg
-
-
 
 ```
-make train crop=641 iters=50000 bs=6 dataset=pepper classes=9 // Pepper
-make train crop=641 iters=40000 bs=6 dataset=nyuv2_8 classes=9 // NYUv2-8
+make train crop=641 iters=40000 bs=2 dataset=nyuv2_8 classes=9 // NYUv2-8
+make train crop=641 iters=50000 bs=2 dataset=pepper classes=9 // Pepper
 ```
 
 可使用 tensorboard 查看训练情况：
 
 ```
+tensorboard --logdir datasets/nyuv2_8/exp/train_on_trainval_set/ --port 2333
 tensorboard --logdir datasets/pepper/exp/train_on_trainval_set/ --port 2333
 ```
 
@@ -35,8 +51,8 @@ tensorboard --logdir datasets/pepper/exp/train_on_trainval_set/ --port 2333
 固定推断的裁剪大小为 641：
 
 ```
-make export crop=641 iters=50000 bs=6 dataset=pepper classes=9 // Pepper
-make export crop=641 iters=40000 bs=6 dataset=nyuv2_8 classes=9 // NYUv2-8
+make export crop=641 iters=40000 bs=2 dataset=nyuv2_8 classes=9 // NYUv2-8
+make export crop=641 iters=50000 bs=2 dataset=pepper classes=9 // Pepper
 ```
 
 ### 使用测试集评估
@@ -58,8 +74,8 @@ make export crop=641 iters=40000 bs=6 dataset=nyuv2_8 classes=9 // NYUv2-8
 将所有图像长和宽的最大值缩放到 800，使用 801 的裁剪大小进行评估，需与 export 时的裁剪大小一致：
 
 ```
-make infer_pepper dataset=pepper crop=801 resize=800 // Pepper
 make infer_nyuv2 dataset=nyuv2_8 crop=641 resize=640 // NYUv2-8
+make infer_pepper dataset=pepper crop=801 resize=800 // Pepper
 ```
 
 准确率结果会输出，结果会放在 output 目录，每张图像的准确率会输出到 report.csv，可删除准确率计算的部分以便在没有真实标签的情况下执行推断。
@@ -91,6 +107,12 @@ https://github.com/equation314/ORB_SLAM2
 服务器路径：/home/jiayuekai/Pepper/ORB_SLAM2
 
 说明：用 ORB-SLAM2 估计相机位姿
+
+copy以下目录 Vocabulary, data 至 ORB-SLAM2(数据文件较大，没上传github):
+
+	/home/weichao/workspace/workspace_python/deeplearning3/Pepper/ORB_SLAM2/Vocabulary
+	/home/weichao/workspace/workspace_python/deeplearning3/Pepper/ORB_SLAM2/data
+
 
 ### 编译
 
