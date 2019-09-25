@@ -1,0 +1,10 @@
+<project version="3">
+  <maintainer email="equation618@gmail.com">Yuekai Jia</maintainer>
+
+  <qibuild name="NAOqiManager">
+    <!-- Add your project dependencies here
+    <depends buildtime="true" runtime="true" names="foo" />
+    -->
+ </qibuild>
+
+</project>
