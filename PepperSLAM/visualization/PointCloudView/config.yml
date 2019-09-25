@@ -1,0 +1,66 @@
+%YAML:1.0
+---
+Camera.fx: 177.98502336919535
+Camera.fy: 177.98502336919535
+Camera.cx: 166.80325317382812
+Camera.cy: 98.12063312530518
+Camera.fb: 14.172062729184877
+
+# Viewer.posX: -0.136582
+# Viewer.posY: -1.11822
+# Viewer.posZ: -1.165
+# Viewer.viewX: -0.510544
+# Viewer.viewY: 0.10696
+# Viewer.viewZ: 2.18346
+# Viewer.upX: 0.00954676
+# Viewer.upY: -0.953564
+# Viewer.upZ: 0.301038
+
+# Viewer.posX: 2.48701
+# Viewer.posY: -2.60303
+# Viewer.posZ: -2.24527
+# Viewer.viewX: -0.371337
+# Viewer.viewY: 0.0324362
+# Viewer.viewZ: 0.832495
+# Viewer.upX: -0.282909
+# Viewer.upY: -0.842404
+# Viewer.upZ: 0.458605
+# POS 2.48701 -2.60303 -2.24527
+# VIEW -0.371337 0.0324362 0.832495
+# UP -0.282909 -0.842404 0.458605
+
+# POS -3.20376 -4.88984 -1.00931
+# VIEW 0.495759 0.479266 2.18346
+# UP 0.265331 -0.621268 0.737309
+
+# POS -0.136582 -1.11822 -1.165
+# VIEW -0.510544 0.10696 2.72772
+# UP 0.00954676 -0.953564 0.301038
+
+# POS -0.187342 -0.104032 4.73079
+# VIEW 0.325522 0.659261 0.737212
+# UP -0.0361941 -0.980709 -0.192091
+
+Viewer.posX: -0.187342
+Viewer.posY: -0.104032
+Viewer.posZ: 4.73079
+Viewer.viewX: 0.325522
+Viewer.viewY: 0.659261
+Viewer.viewZ: 0.737212
+Viewer.upX: -0.0361941
+Viewer.upY: -0.980709
+Viewer.upZ: -0.192091
+
+Disparity.minDisp: 3
+Disparity.maxDisp: 48
+Disparity.visibleDisp: 20
+
+# Disparity.scale: 768 # for SGBM/SGBM_WLS
+# Disparity.scale: 12288 # for SPS-Stereo
+Disparity.scale: 65536 # for MeshStereo
+# Disparity.scale: 65536 # for MeshStereo
+
+PointCloud.PointSize: 3
+PointCloud.Resolution: 0.02
+
+Trajectory.scale: 0.588730

@@ -29,5 +29,11 @@ ORB_SLAM2/build/
 ORB_SLAM2/lib/
 ORB_SLAM2/data/
 
+
+PepperSLAM/data/
+*.pyc
+__pycache__
+
+
 .vscode/
 .DS_Store
