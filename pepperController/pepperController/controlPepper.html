@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <script type="text/javascript" src="js/control.js"></script>
+    <script type="text/javascript" src="libs/qimessaging/1.0/qimessaging.js"></script>
+    <script type="text/javascript" src="libs/qimessaging/1.0/jquery.min.js"></script>
+    <!-- <script src="js/jquery-1.9.1.min.js"></script> -->
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Pepper Controller</title>
+  </head>
+  <body>
+    <div class="container">
+
+      <div id="title">Pepper Controller</div>
+
+      <form role="form">
+        <div class="form-group">
+          <input type="text" class="form-control" id="usr" name="sayText" placeholder="Say Text">
+        </div>
+        <div id="btnSend" onclick="say()"><button type="button" class="btn btn-default" id="send" >Send</button></div>
+      </form>
+
+      <div class="row" style="margin-top: 30px;">
+        <div class="col-xs-6" style="text-align:center;" onclick="standGesture()"><button type="button" class="btn btn-default" id="stand" >Stand</button></div>
+        <div class="col-xs-6" style="text-align:center;" onclick="handsUp()"><button type="button" class="btn btn-default" id="handsUp">Hands Up</button></div>
+      </div>
+
+      <div class="row"><div class="arrow-up center" id="arrow-up" onclick="move(0)"></div></div>
+
+      <div class="row">
+        <div class="col-xs-6"><div class="arrow-left right" id="arrow-left" onclick="move(1)"></div></div>
+        <div class="col-xs-6"><div class="arrow-right left" id="arrow-right" onclick="move(3)"></div></div>
+      </div>
+
+      <div class="row"><div class="arrow-down center" id="arrow-down" onclick="move(2)"></div></div>
+
+  </div>
+  <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
